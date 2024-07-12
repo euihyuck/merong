@@ -1,0 +1,416 @@
+@charset "UTF-8";
+
+@import url(reset.css);
+@import url(font.css);
+@import url(vars.css);
+
+.centerbox {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.centerbox1200 {
+    width: 1200px;
+    margin: 0 auto;
+    min-height: 200px;
+
+}
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    background: url(../images/bg.png)center;
+    background-size: 100%;
+
+    transition: 10s;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.wrap.on {
+    background: url(../images/bg.png) center;
+    background-size: 120%;
+    height: 100%
+}
+
+
+header {
+    display: flex;
+    height: 100px;
+    justify-content: space-around;
+    backdrop-filter: blur(3px);
+    transition: 0.5s;
+    position: absolute;
+    z-index: 7;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2)
+}
+
+header:hover {
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 20px rgb(0, 0, 0, 0.2);
+}
+
+header .h1 {
+    height: 50px;
+    width: 100px;
+
+}
+
+header nav {
+    display: flex;
+}
+
+header .gnb {
+
+    width: 1000px;
+    display: flex;
+}
+
+header .gnb li {
+
+    flex-grow: 1;
+    font-size: 20px;
+    position: relative;
+}
+
+header .gnb li:before {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 50%;
+    background: #000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+header .gnb li:hover:before {
+    opacity: 1;
+}
+
+
+header .gnb li a {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    height: 100%;
+}
+
+header .icon_music {
+
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 50px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    width: 120px;
+}
+
+header .icon_music span {
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    background: #fff;
+    bottom: 30px
+}
+
+header .icon_music span:nth-child(1) {
+    left: 40px
+}
+
+header .icon_music span:nth-child(2) {
+    left: 55px;
+    height: 34px;
+
+}
+
+header .icon_music span:nth-child(3) {
+    left: 70px;
+
+}
+
+header .icon_music.on span {
+    animation: eql 0.9s infinite alternate;
+
+}
+
+
+
+@keyframes eql {
+    0% {
+        height: 20px;
+    }
+
+    50% {
+        height: 10px;
+    }
+
+    100% {
+        height: 34px;
+    }
+}
+
+header .icon_music.on span:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+header .icon_music.on span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+audio#music {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    display: none
+}
+
+.text_box {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    display: flex;
+    font-family: 'GowunBatang-Regular';
+    flex-direction: row-reverse;
+    margin-left: 400px;
+}
+
+.text_box:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(42, 31, 55, 0.8);
+    filter: blur(40px);
+    top: -5%;
+    opacity: 0;
+}
+
+.text_box.on:before {
+    opacity: 1;
+    animation: beFore 3s forwards
+}
+
+@keyframes beFore {
+    0% {
+        top: -50px;
+        left: -150px;
+        opacity: 0;
+        transform: rotate(45deg);
+    }
+
+    100% {
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+.text_box>div {
+    width: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.text_box>div span {
+    font-size: 48px;
+    opacity: 0;
+    display: block;
+
+    color: #fff;
+    position: relative;
+}
+
+.text_box.on>div span {
+    animation: textAni 3s forwards;
+}
+
+@keyframes textAni {
+    0% {
+        top: -50px;
+        left: -150px;
+        opacity: 0;
+        transform: rotate(45deg);
+    }
+
+    100% {
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+.text_box>div span.space {
+    margin-bottom: 30px;
+
+}
+
+.text_box>div.text1 span:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.text_box>div.text1 span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.text_box>div.text1 span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.text_box>div.text1 span:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.text_box>div.text2 span:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.text_box>div.text2 span:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.text_box>div.text2 span:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.text_box>div.text2 span:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.text_box>div.text2 span:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.text_box>div.text3 span:nth-child(1) {
+    animation-delay: 1.1s;
+}
+
+.text_box>div.text3 span:nth-child(2) {
+    animation-delay: 1.2s;
+}
+
+.text_box>div.text3 span:nth-child(3) {
+    animation-delay: 1.3s;
+}
+
+.text_box>div.text3 span:nth-child(4) {
+    animation-delay: 1.4s;
+}
+
+.text_box>div.text3 span:nth-child(5) {
+    animation-delay: 1.5s;
+}
+
+.text_box>div.text3 span:nth-child(6) {
+    animation-delay: 1.6s;
+}
+
+.text_box>div.text3 span:nth-child(7) {
+    animation-delay: 1.7s;
+}
+
+.rain_box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 10px solid #000;
+}
+
+.rain_box .rain1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(../images/rain.png);
+    background-size: 100%;
+    animation: rain1 0.5s infinite linear;
+    z-index: 10;
+    pointer-events: none;
+}
+
+@keyframes rain1 {
+    0% {
+        background-position: 0 0
+    }
+
+    100% {
+        background-position: 0 500px;
+    }
+}
+
+.rain_box .rain2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(../images/rain.png);
+    background-size: 100%;
+    animation: rain2 2s infinite linear
+}
+
+/* @keyframes rain2 {
+    0% {
+        background-position: 0 0
+    }
+
+    100% {
+        background-position: 500px 500px;
+        transform: rotate(40%);
+    }
+}
+ */
+
+
+.rain_box .rain3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(../images/rain.png);
+    background-size: 100%;
+    animation: rain2 2s infinite linear
+}
+
+
+
+/* .rain_box .rain3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(../images/rain.png);
+    background-size: 100%;
+    animation: rain2 2s infinite linear
+}
+
+@keyframes rain3 {
+    0% {
+        background-position: 0 0
+    }
+
+    100% {
+        background-position: 500px 0px;
+        transform: rotate(40deg);
+    }
+} */
